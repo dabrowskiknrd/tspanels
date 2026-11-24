@@ -1,0 +1,51 @@
+[project]
+name = "tspanels"
+version = "0.1.0"
+description = "Aligned time series drawn as stacked matplotlib panels that share one time axis, with declarative layout, pluggable annotations, and configurable colors."
+readme = "README.md"
+requires-python = ">=3.13"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "K. Dabrowski" }]
+keywords = ["time series", "matplotlib", "plotting", "visualization", "panels"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Typing :: Typed",
+]
+dependencies = [
+    "matplotlib>=3.11.2",
+    "pandas>=3.1.0",
+]
+
+[project.optional-dependencies]
+polars = [
+    "polars>=2.1.0",
+    "pyarrow>=26.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/dabrowskiknrd/tspanels"
+Repository = "https://github.com/dabrowskiknrd/tspanels"
+Issues = "https://github.com/dabrowskiknrd/tspanels/issues"
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "polars>=2.1.0",
+    "pyarrow>=26.0.0",
+]
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tspanels"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
