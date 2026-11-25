@@ -2,6 +2,18 @@
 
 Aligned time series drawn as vertically stacked matplotlib panels that share one time axis. The caller declares the layout (which series are drawn in which panel), the annotations (reference levels, marked times, notes, events, periods), and optionally the gap times and the colors; `plot_panels` draws the figure, including the shared time axis, line colors, panel titles, legends, gap markers, notices for panels without data, grid and axis styling, and date ticks.
 
+The figures below are drawn from synthetic hourly readings of an ocean mooring in a tropical sea; [notebooks/api_walkthrough.ipynb](notebooks/api_walkthrough.ipynb) generates the data and presents the complete API.
+
+![Water temperature and sea-level pressure over 14 days, with a climatological range, a thermal-stress threshold, the hours above it, the lowest pressure of a storm, a marine heat wave, two events, and the end of an outage](docs/images/annotations.png)
+
+*Annotations of one panel (`Band`, `RefLine`, `Points`, `Note`) and of the whole figure (`Span`, `VLine`).*
+
+![Wind speed, sea-level pressure, water temperature, and chlorophyll-a during a tropical storm, with 48 hours before and after it](docs/images/event_storm.png)
+
+![The same four panels during a chlorophyll bloom after the storm, with gap markers at the hours without a reading](docs/images/event_bloom.png)
+
+*One project-level function draws every event with the same layout: a 48-hour window around the event, a `Span` for the event, and gap markers for the hours without a reading.*
+
 The package is intended for time series at any sampling frequency. It contains no assumptions about the data's domain, units, or column names.
 
 ## Files
